@@ -11,17 +11,17 @@ export const fetchGeolocation = () => (dispatch) => {
   if (localStorage.getItem('geolocation')) {
     const obj = JSON.parse(localStorage.getItem('geolocation'));
     dispatch(setGeolocation(obj));
-    dispatch(fetchWeather(obj.latitude, obj.longitude));
+    const loc = obj.loc.split(',');
+    dispatch(fetchWeather(loc[0], loc[1]));
   } else {
     axios.get('https://api.ipify.org?format=json').then(({ data }) => {
       axios
-        .get(
-          `http://api.ipapi.com/${data.ip}?access_key=f5c21d11481bbc30f5444ceae364949c`
-        )
+        .get(`https://ipinfo.io/${data.ip}?token=f90c0d7c9fb141`)
         .then(({ data }) => {
+          const loc = data.loc.split(',');
           dispatch(setGeolocation(data));
           localStorage.setItem('geolocation', JSON.stringify(data));
-          dispatch(fetchWeather(data.latitude, data.longitude));
+          dispatch(fetchWeather(loc[0], loc[1]));
         });
     });
   }

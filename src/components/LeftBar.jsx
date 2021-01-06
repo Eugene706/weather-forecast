@@ -48,7 +48,7 @@ const LeftBar = memo(function LeftBar() {
           className="weather-now"
         />
         <span className="degrees-now">{temp}°</span>
-        <span className="location">{`${geolocation.city}, ${geolocation.country_name}`}</span>
+        <span className="location">{`${geolocation.city}, ${geolocation.country}`}</span>
         <div className="date-now">
           <span className="today">{daysOfWeek[date.getDay()]},</span>
           <span className="time">{date.toTimeString().slice(0, 5)}</span>

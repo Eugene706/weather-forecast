@@ -41,9 +41,8 @@ const LeftBarHeader = memo(function LeftBarHeader() {
     dispatch(
       setGeolocation({
         city: obj.city,
-        country_name: obj.country,
-        latitude: obj.latitude,
-        longitude: obj.longitude,
+        country: obj.country,
+        loc: `${obj.latitude},${obj.longitude}`,
       })
     );
     dispatch(fetchWeather(obj.latitude, obj.longitude));

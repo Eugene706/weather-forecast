@@ -6,11 +6,6 @@ const initialState = {
 const weather = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_WEATHER':
-      //let newWeather = JSON.parse(JSON.stringify(...weather));
-      // newWeather.current = { ...state.weather.currernt };
-      // newWeather.daily = { ...state.weather.daily };
-      // newWeather.hourly = { ...state.weather.hourly };
-      //console.log(newWeather);
       return {
         ...state,
         weather: action.payload,

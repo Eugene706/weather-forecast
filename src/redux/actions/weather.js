@@ -14,7 +14,7 @@ export const fetchWeather = (lat, lon) => (dispatch) => {
   setIsLoaded(false);
   axios
     .get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=711b672003e62788d9ad03e2065132ab&units=metric`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${+lat}&lon=${+lon}&appid=711b672003e62788d9ad03e2065132ab&units=metric`
     )
     .then(({ data }) => {
       dispatch(setWeather(data));
